@@ -25,7 +25,7 @@ Route::get('login', [AutentikasiController::class, 'login'])->name('login');
 Route::post('login', [AutentikasiController::class, 'loginPost'])->name('login.post');
 Route::get('logout', [AutentikasiController::class, 'logout'])->name('logout');
 
-Route::get('generated/{seller_id}/{seller_name}/{product_slug}', [Controller::class, 'generate'])->name('generate');
+Route::get('generated/{seller_id}/{seller_name}/{product_slug}/{description}', [Controller::class, 'generate'])->name('generate');
 
 Route::middleware('auth.user')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
