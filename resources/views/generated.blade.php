@@ -8,13 +8,13 @@
     <meta name="keywords" content="@foreach(explode(' ',$product['name']) as $keyword) {{$keyword.' , '}} @endforeach">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @if($product['meta_image']!=null)
-        <meta property="og:image" content="{{env('MAIN_URL')."storage/product/meta"."/"}}{{$product->meta_image}}"/>
+        <meta property="og:image" content="{{env('MAIN_URL')."/storage/product/meta"."/"}}{{$product->meta_image}}"/>
         <meta property="twitter:card"
-              content="{{env('MAIN_URL')."storage/product/meta"."/"}}{{$product->meta_image}}"/>
+              content="{{env('MAIN_URL')."/storage/product/meta"."/"}}{{$product->meta_image}}"/>
     @else
-        <meta property="og:image" content="{{env('MAIN_URL')."storage/product/thumbnail"."/"}}{{$product->thumbnail}}"/>
+        <meta property="og:image" content="{{env('MAIN_URL')."/storage/product/thumbnail"."/"}}{{$product->thumbnail}}"/>
         <meta property="twitter:card"
-              content="{{env('MAIN_URL')."storage/product/thumbnail/"."/"}}{{$product->thumbnail}}"/>
+              content="{{env('MAIN_URL')."/storage/product/thumbnail/"."/"}}{{$product->thumbnail}}"/>
     @endif
 
     @if($product['meta_title']!=null)
