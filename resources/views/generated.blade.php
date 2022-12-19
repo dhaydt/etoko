@@ -4,7 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{$product->slug}}">
+    <meta name="keywords" content="@foreach(explode(' ',$product['name']) as $keyword) {{$keyword.' , '}} @endforeach">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    @if($product['meta_image']!=null)
+        <meta property="og:image" content="{{env('MAIN_URL')."storage/product/meta"}}/{{$product->meta_image}}"/>
+        <meta property="twitter:card"
+              content="{{env('MAIN_URL')."storage/product/meta"}}/{{$product->meta_image}}"/>
+    @else
+        <meta property="og:image" content="{{env('MAIN_URL')."storage/product/thumbnail"}}/{{$product->thumbnail}}"/>
+        <meta property="twitter:card"
+              content="{{env('MAIN_URL')."storage/product/thumbnail/"}}/{{$product->thumbnail}}"/>
+    @endif
+
+    @if($product['meta_title']!=null)
+        <meta property="og:title" content="{{$product->meta_title}}"/>
+        <meta property="twitter:title" content="{{$product->meta_title}}"/>
+    @else
+        <meta property="og:title" content="{{$product->name}}"/>
+        <meta property="twitter:title" content="{{$product->name}}"/>
+    @endif
+    {{-- <meta property="og:url" content="{{route('product',[$product->slug])}}"> --}}
+
+    @if($product['meta_description']!=null)
+        <meta property="twitter:description" content="{!! $product['meta_description'] !!}">
+        <meta property="og:description" content="{!! $product['meta_description'] !!}">
+    @else
+        <meta property="og:description"
+              content="@foreach(explode(' ',$product['name']) as $keyword) {{$keyword.' , '}} @endforeach">
+        <meta property="twitter:description"
+              content="@foreach(explode(' ',$product['name']) as $keyword) {{$keyword.' , '}} @endforeach">
+    @endif
+    {{-- <meta property="twitter:url" content="{{route('product',[$product->slug])}}"> --}}
     <title>{{ $title }}</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
