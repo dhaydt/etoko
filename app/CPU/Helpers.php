@@ -4,6 +4,20 @@ namespace App\CPU;
 
 class Helpers
 {
+    public static function directWa($data)
+    {
+        $main = 'https://api.whatsapp.com/send?phone=';
+        $phone = $data['phone'];
+        $product = ucwords($data['product']);
+        $product = urlencode(substr($product, 0, 50));
+        $price = 'Rp.'.number_format($data['price']);
+        $link = $data['link'];
+        $message = 'Apakah produk ini tersedia?';
+        $url = $main.$phone.'&text='.$product.'%0A'.$price.'%0A'.$message;
+
+        return $url;
+    }
+
     public static function regexUserAgent($ua)
     {
         $ua = is_null($ua) ? $_SERVER['HTTP_USER_AGENT'] : $ua;

@@ -560,12 +560,12 @@
             </div>
             <div class="position-relative">
                 <div class="footer card shadow-sm w-100">
-                    <a href="javascript:" type="button" class="btn btn-primary buy_btn">
-                        Beli Sekarang
+                    <a href="{{ $direct_wa }}" target="_blank" type="button" class=" w-100 btn btn-primary buy_btn">
+                        Tanya Penjual
                     </a>
                 </div>
             </div>
-            <div class="modal fade" id="variant" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            {{-- <div class="modal fade" id="variant" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -581,7 +581,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> --}}
         </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
